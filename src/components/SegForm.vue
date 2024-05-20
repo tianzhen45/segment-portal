@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import {doSegment} from "@/api/segService.js";
+
 export default {
   name: 'SegForm',
   data () {
@@ -23,9 +25,14 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
-      console.log('submit!')
-      this.form.data = this.resultData
+    async onSubmit () {
+      try{
+        let data = new FormData();
+        data.append('names', this.form.data);
+        this.form.data = await doSegment(data);
+      } catch (error) {  
+        console.error('Error fetching seg data:', error);
+      }
     },
     onCopy () {
       this.$copyText(this.form.data)
