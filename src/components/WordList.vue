@@ -1,0 +1,78 @@
+<template>
+  <div id='app'>
+    <el-form :inline="true" ref="form" :model="param">
+      <el-form-item label="中文">
+       <el-input v-model="param.cnName" placeholder="中文"></el-input>
+      </el-form-item>
+      <el-form-item label="英文">
+        <el-input v-model="param.enName" placeholder="英文"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit">查询</el-button>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="warning" @click="onClear">重置</el-button>
+      </el-form-item>
+    </el-form>
+
+    <el-table :data='tableData' border style='width: 100%'>
+      <el-table-column prop='cnName' label='中文' width='180'>
+      </el-table-column>
+      <el-table-column prop='enName' label='英文' width='180'>
+      </el-table-column>
+    </el-table>
+    <div class='block'>
+      <el-pagination :page-size='size' :page-sizes='[10, 20, 50, 100]' :current-page.sync='page'
+        layout='sizes,prev, pager, next,total' @current-change='pageChange' @size-change='handleSizeChange'
+        :total='total'>
+      </el-pagination>
+    </div>
+  </div>
+</template>
+
+<script>
+import { listByPage } from '@/api/wordService.js'
+
+export default {
+  name: 'WordList',
+  data () {
+    return {
+      tableData: [],
+      page: 1,
+      size: 10,
+      total: 0,
+      param: { cnName: '', enName: '' }
+    }
+  },
+  methods: {
+    async loadList () {
+      let responseData = await listByPage({
+        param: this.param,
+        page: {page: this.page - 1, size: this.size}
+      })
+      this.tableData = responseData.content
+      this.total = responseData.totalElements
+    },
+    pageChange (val) {
+      this.page = val
+      this.loadList()
+    },
+    handleSizeChange (val) {
+      this.size = val
+      this.loadList()
+    },
+    onSubmit () {
+      this.page = 1
+      this.loadList()
+    },
+    onClear () {
+      this.page = 1
+      this.param = { cnName: '', enName: '' }
+      this.loadList()
+    }
+  },
+  mounted: function () {
+    this.loadList()
+  }
+}
+</script>
