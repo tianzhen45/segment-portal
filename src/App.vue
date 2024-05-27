@@ -1,27 +1,44 @@
 <template>
   <div id="app">
-    <div style="text-align: left;">
+    <!-- <div style="text-align: left;">
       <img src="./assets/segment-logo.png" height="100px">
-    </div>
-    <el-row>
+    </div> -->
+
+    <el-tabs v-model="defaultMenu" >
+      <el-tab-pane label="分词工具" name="SegForm"><SegForm/></el-tab-pane>
+      <el-tab-pane label="词根管理" name="WordList"><WordList/></el-tab-pane>
+      <el-tab-pane label="词根导入" name="WordImport"><WordImport/></el-tab-pane>
+      <el-tab-pane label="DDL生成" name="SqlGen"><SqlGen/></el-tab-pane>
+    </el-tabs>
+
+    <!-- <el-row>
       <el-col :offset="2"  :span="4"> <router-link to="/SegForm">分词工具</router-link></el-col>
       <el-col :span="4"> <router-link to="/WordList">词根管理</router-link></el-col>
-    </el-row>
-    <!-- 路由匹配到的组件将渲染在这里 -->
-    <router-view/>
-
+      <el-col :span="4"> <router-link to="/WordImport">词根导入</router-link></el-col>
+      <el-col :span="4"> <router-link to="/SqlGen">DDL生成</router-link></el-col>
+    </el-row> -->
+     <!-- <router-view/> -->
   </div>
 </template>
 
 <script>
 import SegForm from './components/SegForm.vue'
 import WordList from './components/WordList.vue'
+import WordImport from './components/WordImport.vue'
+import SqlGen from './components/SqlGen.vue'
 
 export default {
   name: 'app',
   components: {
     SegForm,
-    WordList
+    WordList,
+    WordImport,
+    SqlGen
+  },
+  data () {
+    return {
+      defaultMenu: 'SegForm'
+    }
   }
 }
 </script>

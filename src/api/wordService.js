@@ -8,3 +8,12 @@ export async function listByPage (data) {
     throw error
   }
 }
+
+export async function doImport (data) {
+  try {
+    const response = await axios.post(`/seg/word/import`, data)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}

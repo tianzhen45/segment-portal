@@ -1,24 +1,30 @@
 <template>
   <div id='app'>
     <el-form :inline="true" ref="form" :model="param">
-      <el-form-item label="中文">
-       <el-input v-model="param.cnName" placeholder="中文"></el-input>
-      </el-form-item>
-      <el-form-item label="英文">
-        <el-input v-model="param.enName" placeholder="英文"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="warning" @click="onClear">重置</el-button>
-      </el-form-item>
+      <el-row>
+        <el-col :span="16" :offset="4">
+        <el-form-item label="中文">
+        <el-input v-model="param.cnName" placeholder="中文"></el-input>
+        </el-form-item>
+        <el-form-item label="英文">
+          <el-input v-model="param.enName" placeholder="英文"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit">查询</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="warning" @click="onClear">重置</el-button>
+        </el-form-item>
+      </el-col>
+      <el-col :span="4">
+      </el-col>
+      </el-row>
     </el-form>
 
-    <el-table :data='tableData' border style='width: 100%'>
-      <el-table-column prop='cnName' label='中文' width='180'>
+    <el-table :data='tableData' border style='width: 100%' stripe>
+      <el-table-column prop='cnName' label='中文' align="center">
       </el-table-column>
-      <el-table-column prop='enName' label='英文' width='180'>
+      <el-table-column prop='enName' label='英文' align="center">
       </el-table-column>
     </el-table>
     <div class='block'>
