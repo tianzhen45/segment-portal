@@ -4,6 +4,8 @@ import WordList from '@/components/WordList.vue'
 import SegForm from '@/components/SegForm.vue'
 import WordImport from '@/components/WordImport.vue'
 import SqlGen from '@/components/SqlGen.vue'
+import Login from '@/components/Login.vue'
+import Home from '@/components/Home.vue'
 
 Vue.use(Router)
 
@@ -28,6 +30,14 @@ export default new Router({
       path: '/SqlGen',
       name: 'SqlGen',
       component: SqlGen
+    },{
+      path: '/Login',
+      name: 'Login',
+      component: Login
+    },{
+      path: '/',
+      name: 'Home',
+      component: Home
     }
   ]
 })
