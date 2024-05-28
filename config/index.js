@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/seg': { // 匹配以 '/seg' 开头的请求  
-        target: 'http://localhost:9888', // 后端服务的地址和端口  
+        target: 'http://localhost:9999', // 后端服务的地址和端口  
         changeOrigin: true // 允许跨域请求
       }
     },

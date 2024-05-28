@@ -15,6 +15,15 @@
         <el-form-item>
           <el-button type="warning" @click="onClear">重置</el-button>
         </el-form-item>
+        <el-form-item>
+          <el-button type="info" @click="dialogVisible = true">词根导入</el-button>
+            <el-dialog
+              title="词根 导入"
+              :visible.sync="dialogVisible"
+              width="80%">
+              <word-import/>
+            </el-dialog>
+        </el-form-item>
       </el-col>
       <el-col :span="4">
       </el-col>
@@ -38,8 +47,10 @@
 
 <script>
 import { listByPage } from '@/api/wordService.js'
+import WordImport from './WordImport.vue'
 
 export default {
+  components: { WordImport },
   name: 'WordList',
   data () {
     return {
@@ -47,7 +58,8 @@ export default {
       page: 1,
       size: 10,
       total: 0,
-      param: { cnName: '', enName: '' }
+      param: { cnName: '', enName: '' },
+      dialogVisible: false
     }
   },
   methods: {

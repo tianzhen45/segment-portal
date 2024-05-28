@@ -46,6 +46,10 @@ export default {
   methods: {
     async onSubmit () {
       try {
+        if (this.form.data === '') {
+          this.$message('内容为空，无法提交')
+          return
+        }
         let data = new FormData()
         data.append('names', this.form.data)
         let result = await doSegment(data)
@@ -71,3 +75,8 @@ export default {
   }
 }
 </script>
+<style>
+.el-table .warning-row {
+  background: oldlace;
+}
+</style>

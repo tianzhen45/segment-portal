@@ -7,7 +7,6 @@
     <el-tabs v-model="defaultMenu" >
       <el-tab-pane label="分词工具" name="SegForm"><SegForm/></el-tab-pane>
       <el-tab-pane label="词根管理" name="WordList"><WordList/></el-tab-pane>
-      <el-tab-pane label="词根导入" name="WordImport"><WordImport/></el-tab-pane>
       <el-tab-pane label="DDL生成" name="SqlGen"><SqlGen/></el-tab-pane>
     </el-tabs>
 

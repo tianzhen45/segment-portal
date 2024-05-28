@@ -1,38 +1,34 @@
 <template>
   <div id="WordImport">
-    <el-form ref="form" :model="form">
+    <el-form>
       <el-row>
-        <el-col :span="4" :offset="16">
+        <el-col :span="8">
           <el-form-item>
             <el-radio v-model="radio" :label="1">增量导入</el-radio>
             <el-radio v-model="radio" :label="2">清空导入</el-radio>
           </el-form-item>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="8">
           <el-form-item>
             <el-button type="primary" @click="onSubmit">导入</el-button>
             <el-button type="warning" @click="onClear">重置</el-button>
           </el-form-item>
         </el-col>
       </el-row>
+    </el-form>
       <el-divider></el-divider>
-      <el-row>
-        <el-col :span="12">
-          <el-form-item label="词根导入">
-            <el-input type="textarea" @input="onChange" v-model="form.data" rows="24" placeholder="请复制excle词根内容粘贴到此处,按照列1中文,列2英文的顺序"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="导入列表">
-            <el-table :data='tableData' border stripe max-height="500">
-              <el-table-column prop='cnName' label='中文' align="center">
-              </el-table-column>
-              <el-table-column prop='enName' label='英文' align="center">
-              </el-table-column>
-            </el-table>
-          </el-form-item>
-        </el-col>
-      </el-row>
+      <el-form ref="form" :model="form">
+        <el-form-item label="词根导入">
+          <el-input type="textarea" id="input-area" @input="onChange" v-model="form.data" rows="15" placeholder="请复制excle词根内容粘贴到此处,按照列1中文,列2英文的顺序"></el-input>
+        </el-form-item>
+        <el-form-item label="导入列表">
+          <el-table :data='tableData' border stripe max-height="500" id="show-table">
+            <el-table-column prop='cnName' label='中文' align="center">
+            </el-table-column>
+            <el-table-column prop='enName' label='英文' align="center">
+            </el-table-column>
+          </el-table>
+        </el-form-item>
     </el-form>
   </div>
 </template>
@@ -84,3 +80,11 @@ export default {
   }
 }
 </script>
+<style>
+#input-area{
+  width: calc(35vw)
+}
+#show-table{
+  width: calc(25vw)
+}
+</style>
