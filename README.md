@@ -1,4 +1,4 @@
-# vue-webpack-demo
+# segment-portal
 
 > A Vue.js project
 
