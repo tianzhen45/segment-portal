@@ -8,6 +8,7 @@
       <el-tab-pane label="分词工具" name="SegForm"><SegForm/></el-tab-pane>
       <el-tab-pane label="词根管理" name="WordList"><WordList/></el-tab-pane>
       <el-tab-pane label="DDL生成" name="SqlGen"><SqlGen/></el-tab-pane>
+      <el-tab-pane label="DDL解析" name="SqlParse"><SqlParse/></el-tab-pane>
     </el-tabs>
 
     <!-- <el-row>
@@ -25,6 +26,7 @@ import SegForm from './SegForm.vue'
 import WordList from './WordList.vue'
 import WordImport from './WordImport.vue'
 import SqlGen from './SqlGen.vue'
+import SqlParse from './SqlParse.vue'
 
 export default {
   name: 'Home',
@@ -32,7 +34,8 @@ export default {
     SegForm,
     WordList,
     WordImport,
-    SqlGen
+    SqlGen,
+    SqlParse
   },
   data () {
     return {

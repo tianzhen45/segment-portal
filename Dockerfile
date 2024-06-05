@@ -1,6 +1,5 @@
 FROM nginx
 
-
 WORKDIR /dist
 COPY dist/static ./static
 COPY dist/index.html ./

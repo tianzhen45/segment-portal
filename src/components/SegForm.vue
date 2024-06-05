@@ -3,7 +3,7 @@
     <el-row>
         <el-col :span="8">
           <el-form-item label="分词内容">
-            <el-input type="textarea" v-model="form.data" rows="24" placeholder="请输入需要分词的中文内容，多条内容使用换行分隔"></el-input>
+            <el-input type="textarea" v-model="form.data" rows="24" placeholder="请输入需要分词的中文内容，多条内容使用换行分隔" spellcheck="false"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="16">

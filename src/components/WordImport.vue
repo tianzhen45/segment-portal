@@ -19,7 +19,7 @@
       <el-divider></el-divider>
       <el-form ref="form" :model="form">
         <el-form-item label="词根导入">
-          <el-input type="textarea" id="input-area" @input="onChange" v-model="form.data" rows="15" placeholder="请复制excle词根内容粘贴到此处,按照列1中文,列2英文的顺序"></el-input>
+          <el-input type="textarea" id="input-area" @input="onChange" v-model="form.data" rows="15" placeholder="请复制excle词根内容粘贴到此处,按照列1中文,列2英文的顺序" spellcheck="false"></el-input>
         </el-form-item>
         <el-form-item label="导入列表">
           <el-table :data='tableData' border stripe max-height="500" id="show-table">

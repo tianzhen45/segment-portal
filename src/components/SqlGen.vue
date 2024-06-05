@@ -3,7 +3,7 @@
     <el-row>
         <el-col :span="8">
           <el-form-item label="表字段信息">
-            <el-input type="textarea" v-model="form.data" rows="24" @input="onChange" placeholder="请复制excel表字段信息后粘贴,列顺序为【表英文名称|表中文名称|字段英文名称|字段中文名称|字段类型|字段长度】"></el-input>
+            <el-input type="textarea" v-model="form.data" rows="24" @input="onChange" placeholder="请复制excel表字段信息后粘贴,列顺序为【表英文名称|表中文名称|字段英文名称|字段中文名称|字段类型|字段长度】" spellcheck="false"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="16">
@@ -50,7 +50,7 @@
         :visible.sync="dialogVisible"
         width="30%"
         >
-        <el-input type="textarea" v-model="resultData" rows="24"/>
+        <el-input type="textarea" v-model="resultData" rows="24" spellcheck="false"/>
         <span slot="footer" class="dialog-footer">
           <el-button type="warning" @click="onCopy">复 制</el-button>
           <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
