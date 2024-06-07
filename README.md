@@ -1,6 +1,6 @@
 # segment-portal
 
-> A Vue.js project
+> Segment前端项目
 
 ## Build Setup
 
@@ -18,4 +18,13 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## docker部署
+参考segment README.md
+
+## 非docker部署
+部署nginx，修改nginx.conf
+```
+location /seg {
+proxy_pass http://segment:9999/seg; // 修改为后端路径
+}
+```
